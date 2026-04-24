@@ -3,138 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bug Gene Recombinator</title>
+    <title>Bug Genetics Recombination</title>
     <style>
         :root {
-            --mother-color: #d1a3b9;
-            --father-color: #b3d1ff;
+            --mother-bg: #d1a3b9;
+            --father-bg: #b3d1ff;
+            --mother-border: #8da399;
+            --father-border: #0000ff;
         }
 
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
         }
 
-        .controls { margin-bottom: 20px; }
-        
+        .btn-container { margin-bottom: 30px; }
+
         button {
-            padding: 12px 24px;
-            font-size: 1rem;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            margin: 5px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
             font-weight: bold;
-            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        button:hover { background-color: #45a049; transform: scale(1.05); }
-        .btn-reset { background-color: #f44336; }
-        .btn-reset:hover { background-color: #d32f2f; }
+        .btn-sort { background-color: #28a745; color: white; margin-right: 10px; }
+        .btn-sort:hover { background-color: #218838; transform: translateY(-2px); }
+        .btn-reset { background-color: #dc3545; color: white; }
+        .btn-reset:hover { background-color: #c82333; }
 
-        .container {
+        .parents-grid {
             display: flex;
             gap: 40px;
-            margin-bottom: 30px;
-            justify-content: center;
+            margin-bottom: 40px;
         }
 
-        .parent-section {
+        .parent-box {
             background: white;
-            padding: 15px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            min-width: 180px;
-        }
-
-        .chromosome-pool {
-            display: flex;
-            gap: 15px;
-            min-height: 250px;
-            justify-content: center;
-            padding: 10px;
-            border: 2px inset #eee;
-            border-radius: 8px;
-        }
-
-        .chromosome {
-            width: 55px;
-            border: 3px solid;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .gene-box {
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-        }
-
-        .gene-box:last-child { border-bottom: none; }
-
-        .mother-chrom { border-color: #8da399; }
-        .mother-header { background: var(--mother-color); padding: 8px; margin-bottom: 10px; border-radius: 5px; font-weight: bold;}
-
-        .father-chrom { border-color: blue; }
-        .father-header { background: var(--father-color); padding: 8px; margin-bottom: 10px; border-radius: 5px; font-weight: bold;}
-
-        #recombination-area {
-            width: 100%;
-            max-width: 500px;
-            background: #e9ecef;
-            border: 3px dashed #6c757d;
-            border-radius: 15px;
             padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
+            min-width: 200px;
         }
 
-        .drop-slots {
+        .header-m { background-color: var(--mother-bg); padding: 10px; border-radius: 8px; margin-bottom: 15px; }
+        .header-f { background-color: var(--father-bg); padding: 10px; border-radius: 8px; margin-bottom: 15px; }
+
+        .pool {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin-top: 15px;
+            min-height: 250px;
+        }
+
+        /* Chromosome Styling */
+        .chromosome {
+            width: 60px;
+            border: 4px solid;
+            border-radius: 10px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .m-type { border-color: var(--mother-border); }
+        .f-type { border-color: var(--father-border); }
+
+        .gene {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .gene:last-child { border-bottom: none; }
+
+        /* Recombination Area */
+        .recombination-zone {
+            background: #e2e8f0;
+            border: 4px dashed #94a3b8;
+            border-radius: 20px;
+            padding: 30px;
+            width: 500px;
+            text-align: center;
+        }
+
+        .slots {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
             min-height: 260px;
         }
 
         .slot {
-            width: 65px;
-            border: 2px solid #adb5bd;
-            border-radius: 10px;
-            background: #fff;
+            width: 70px;
+            border: 3px solid #cbd5e1;
+            border-radius: 12px;
+            background: #f8fafc;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-        }
-
-        .slot::before {
-            content: "Empty";
-            color: #dee2e6;
-            position: absolute;
-            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>Bug Genetics Lab</h1>
+    <h1>Bug Chromosome Lab</h1>
 
-    <div class="controls">
-        <button onclick="autoRecombine()">Random Gene Sort & Move</button>
-        <button class="btn-reset" onclick="resetPools()">Reset Lab</button>
+    <div class="btn-container">
+        <button class="btn-sort" onclick="recombine()">Sort & Recombine Genes</button>
+        <button class="btn-reset" onclick="resetAll()">Reset</button>
     </div>
 
-    <div class="container">
+    <div class="parents-grid">
+        <div class="parent-box">
+            <div class="header-m">Mother Bug Genes</div>
+            <div class="pool" id="mother-pool">
+                <div class="chromosome m-type" id="m1">
+                    <div class="gene">B</div><div class="gene">T</div><div class="gene">R</div><div class="gene">L</div><div class="gene">E</div><div class="gene">X</div>
+                </div>
+                <div class="chromosome m-type" id="m2">
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">X</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parent-box">
+            <div class="header-f">Father Bug Genes</div>
+            <div class="pool" id="father-pool">
+                <div class="chromosome f-type" id="f1">
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">L</div><div class="gene">e</div><div class="gene">X</div>
+                </div>
+                <div class="chromosome f-type" id="f2">
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">Y</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="recombination-zone">
+        <h3>Recombination Area</h3>
+        <p>Offspring Chromosome Pair</p>
+        <div class="slots">
+            <div class="slot" id="slot-m"></div>
+            <div class="slot" id="slot-f"></div>
+        </div>
+    </div>
+
+    <script>
+        function resetAll() {
+            // Move chromosomes back to their original pools
+            document.getElementById('mother-pool').appendChild(document.getElementById('m1'));
+            document.getElementById('mother-pool').appendChild(document.getElementById('m2'));
+            document.getElementById('father-pool').appendChild(document.getElementById('f1'));
+            document.getElementById('father-pool').appendChild(document.getElementById('f2'));
+        }
+
+        function recombine() {
+            // Step 1: Always reset first so we choose from all 4 options
+            resetAll();
+
+            // Step 2: Randomly pick Mother's chromosome
+            const motherOptions = ["m1", "m2"];
+            const randomM = motherOptions[Math.floor(Math.random() * motherOptions.length)];
+            const chosenM = document.getElementById(randomM);
+
+            // Step 3: Randomly pick Father's chromosome
+            const fatherOptions = ["f1", "f2"];
+            const randomF = fatherOptions[Math.floor(Math.random() * fatherOptions.length)];
+            const chosenF = document.getElementById(randomF);
+
+            // Step 4: Move them to the recombination area
+            document.getElementById('slot-m').appendChild(chosenM);
+            document.getElementById('slot-f').appendChild(chosenF);
+        }
+    </script>
+</body>
+</html>
