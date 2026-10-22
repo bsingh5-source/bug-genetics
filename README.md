@@ -64,6 +64,56 @@
             min-height: 250px;
         }
 
+        .legend-box {
+            background: #ffffff;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            padding: 16px 20px;
+            width: min(760px, 90vw);
+        }
+
+        .legend-box h3 {
+            margin: 0 0 12px;
+            text-align: center;
+        }
+
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 8px 10px;
+        }
+
+        .letter-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #e2e8f0;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .legend-note {
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
         /* Chromosome Styling */
         .chromosome {
             width: 60px;
@@ -122,6 +172,19 @@
 <body>
 
     <h1>Bug Chromosome Lab</h1>
+
+    <div class="legend-box">
+        <h3>Gene Key</h3>
+        <div class="legend-grid">
+            <div class="legend-item"><span class="letter-badge">B / b</span><span>Body color</span></div>
+            <div class="legend-item"><span class="letter-badge">T / t</span><span>Leg length</span></div>
+            <div class="legend-item"><span class="letter-badge">R / r</span><span>Wing pattern</span></div>
+            <div class="legend-item"><span class="letter-badge">L / l</span><span>Spots/markings</span></div>
+            <div class="legend-item"><span class="letter-badge">E / e</span><span>Eye size</span></div>
+            <div class="legend-item"><span class="letter-badge">X / Y</span><span>Sex chromosome</span></div>
+        </div>
+        <p class="legend-note"><strong>Tip:</strong> Capital letters are dominant traits and lowercase letters are recessive traits.</p>
+    </div>
 
     <div class="btn-container">
         <button class="btn-sort" onclick="recombine()">Sort & Recombine Genes</button>
