@@ -23,15 +23,6 @@
             --mother-border: #7a8d82;
             --father-border: #3b6bb0;
             --ink: #1f2937;
-            --annotation-female: #b33d3d;
-            --annotation-male: #1c4b8e;
-            --female-body: #e64b4b;
-            --female-body-dark: #b33232;
-            --male-body: #4377d9;
-            --male-body-dark: #2b5da6;
-            --female-dot: #f7f1d2;
-            --male-dot: #f7f7f7;
-            --pencil: #1d1d1d;
         }
 
         * { box-sizing: border-box; }
@@ -104,13 +95,13 @@
             border: 2px solid var(--panel-border);
             border-radius: 16px;
             box-shadow: 0 4px 14px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            padding: 18px 20px;
-            width: min(1050px, 92vw);
+            margin-bottom: 22px;
+            padding: 14px 18px 12px;
+            width: min(980px, 92vw);
         }
 
         .legend-box h3 {
-            margin: 0 0 14px;
+            margin: 0 0 12px;
             text-align: center;
             color: var(--header-green);
             font-size: 1.5rem;
@@ -118,8 +109,8 @@
 
         .legend-layout {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            align-items: stretch;
+            gap: 18px;
         }
 
         .trait-table {
@@ -133,10 +124,11 @@
         .trait-table th,
         .trait-table td {
             border: 1px solid #e8ddc7;
-            padding: 10px 12px;
+            padding: 8px 10px;
             text-align: left;
             vertical-align: middle;
             color: var(--text);
+            font-size: 0.96rem;
         }
 
         .trait-table th {
@@ -151,34 +143,34 @@
             background: #f4efe4;
             border: 1px solid #e7dcc4;
             border-radius: 6px;
-            padding: 5px 8px;
+            padding: 4px 7px;
             font-weight: 700;
             text-align: center;
             color: var(--ink);
+            white-space: nowrap;
         }
 
         .ladybug-panel {
-            width: 220px;
-            min-width: 220px;
-            height: 220px;
-            background: linear-gradient(135deg, #fffaf2, #f0f3ef);
-            border: 2px solid #e5dac5;
-            border-radius: 14px;
+            width: 180px;
+            min-width: 180px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, #fffaf2, #f0f3ef);
+            border: 1px solid #e5dac5;
+            border-radius: 12px;
             box-shadow: inset 0 0 0 1px rgba(95, 124, 104, 0.08);
         }
 
         .ladybug-svg {
-            width: 170px;
-            height: 170px;
+            width: 150px;
+            height: 150px;
         }
 
         .legend-note {
-            margin-top: 12px;
+            margin-top: 10px;
             text-align: center;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--muted-text);
         }
 
@@ -208,7 +200,6 @@
         }
         .gene:last-child { border-bottom: none; }
 
-        /* Recombination Area */
         .recombination-zone {
             background: #edf2f1;
             border: 3px dashed #9bb0a7;
