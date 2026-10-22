@@ -71,7 +71,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             margin-bottom: 30px;
             padding: 16px 20px;
-            width: min(760px, 90vw);
+            width: min(900px, 90vw);
         }
 
         .legend-box h3 {
@@ -79,34 +79,36 @@
             text-align: center;
         }
 
-        .legend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .trait-table {
+            width: 100%;
+            border-collapse: collapse;
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #dbe3ee;
             border-radius: 10px;
-            padding: 8px 10px;
-            min-height: 62px;
+            overflow: hidden;
         }
 
-        .letter-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 58px;
-            height: 36px;
-            border-radius: 8px;
+        .trait-table th,
+        .trait-table td {
+            border: 1px solid #dbe3ee;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .trait-table th {
             background: #e2e8f0;
             font-weight: bold;
-            font-size: 0.95rem;
-            padding: 0 8px;
+            text-align: center;
+        }
+
+        .gene-label {
+            display: inline-block;
+            background: #e2e8f0;
+            border-radius: 6px;
+            padding: 4px 8px;
+            font-weight: bold;
+            text-align: center;
         }
 
         .legend-note {
@@ -177,14 +179,47 @@
 
     <div class="legend-box">
         <h3>Traits & Genes</h3>
-        <div class="legend-grid">
-            <div class="legend-item"><span class="letter-badge">B / b</span><span>Body segments: B = 3 segments, b = 2 segments</span></div>
-            <div class="legend-item"><span class="letter-badge">T / t</span><span>Pairs of wings: T = 2 pairs, t = 1 pair</span></div>
-            <div class="legend-item"><span class="letter-badge">R / r</span><span>Antenna style: R = straight, r = curly</span></div>
-            <div class="legend-item"><span class="letter-badge">L / l</span><span>Pairs of legs: L = 3 pairs, l = 2 pairs</span></div>
-            <div class="legend-item"><span class="letter-badge">E / e</span><span>Color of eyes: E = Black, e = Green</span></div>
-            <div class="legend-item"><span class="letter-badge">G / g</span><span>Body Color: G = Gray, g = purple</span></div>
-        </div>
+        <table class="trait-table">
+            <thead>
+                <tr>
+                    <th>Trait</th>
+                    <th>Dominant Gene</th>
+                    <th>Recessive Gene</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Body segments</td>
+                    <td><span class="gene-label">B = 3 segments</span></td>
+                    <td><span class="gene-label">b = 2 segments</span></td>
+                </tr>
+                <tr>
+                    <td>Pairs of wings</td>
+                    <td><span class="gene-label">T = 2 pairs</span></td>
+                    <td><span class="gene-label">t = 1 pair</span></td>
+                </tr>
+                <tr>
+                    <td>Antenna style</td>
+                    <td><span class="gene-label">R = straight</span></td>
+                    <td><span class="gene-label">r = curly</span></td>
+                </tr>
+                <tr>
+                    <td>Pairs of legs</td>
+                    <td><span class="gene-label">L = 3 pairs</span></td>
+                    <td><span class="gene-label">l = 2 pairs</span></td>
+                </tr>
+                <tr>
+                    <td>Color of eyes</td>
+                    <td><span class="gene-label">E = Black</span></td>
+                    <td><span class="gene-label">e = Green</span></td>
+                </tr>
+                <tr>
+                    <td>Body Color</td>
+                    <td><span class="gene-label">G = Gray</span></td>
+                    <td><span class="gene-label">g = Purple</span></td>
+                </tr>
+            </tbody>
+        </table>
         <p class="legend-note"><strong>Tip:</strong> Capital letters are dominant traits and lowercase letters are recessive traits.</p>
     </div>
 
