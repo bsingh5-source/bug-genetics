@@ -71,7 +71,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             margin-bottom: 30px;
             padding: 16px 20px;
-            width: min(900px, 90vw);
+            width: min(1000px, 90vw);
         }
 
         .legend-box h3 {
@@ -79,8 +79,14 @@
             text-align: center;
         }
 
+        .legend-layout {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .trait-table {
-            width: 100%;
+            flex: 1;
             border-collapse: collapse;
             background: #f8fafc;
             border: 1px solid #dbe3ee;
@@ -109,6 +115,24 @@
             padding: 4px 8px;
             font-weight: bold;
             text-align: center;
+        }
+
+        .ladybug-panel {
+            width: 220px;
+            min-width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #fffaf2, #f3f4f6);
+            border: 2px solid #dbe3ee;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+        }
+
+        .ladybug-svg {
+            width: 170px;
+            height: 170px;
         }
 
         .legend-note {
@@ -179,47 +203,73 @@
 
     <div class="legend-box">
         <h3>Traits & Genes</h3>
-        <table class="trait-table">
-            <thead>
-                <tr>
-                    <th>Trait</th>
-                    <th>Dominant Gene</th>
-                    <th>Recessive Gene</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Body segments</td>
-                    <td><span class="gene-label">B = 3 segments</span></td>
-                    <td><span class="gene-label">b = 2 segments</span></td>
-                </tr>
-                <tr>
-                    <td>Pairs of wings</td>
-                    <td><span class="gene-label">T = 2 pairs</span></td>
-                    <td><span class="gene-label">t = 1 pair</span></td>
-                </tr>
-                <tr>
-                    <td>Antenna style</td>
-                    <td><span class="gene-label">R = straight</span></td>
-                    <td><span class="gene-label">r = curly</span></td>
-                </tr>
-                <tr>
-                    <td>Pairs of legs</td>
-                    <td><span class="gene-label">L = 3 pairs</span></td>
-                    <td><span class="gene-label">l = 2 pairs</span></td>
-                </tr>
-                <tr>
-                    <td>Color of eyes</td>
-                    <td><span class="gene-label">E = Black</span></td>
-                    <td><span class="gene-label">e = Green</span></td>
-                </tr>
-                <tr>
-                    <td>Body Color</td>
-                    <td><span class="gene-label">G = Gray</span></td>
-                    <td><span class="gene-label">g = Purple</span></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="legend-layout">
+            <table class="trait-table">
+                <thead>
+                    <tr>
+                        <th>Trait</th>
+                        <th>Dominant Gene</th>
+                        <th>Recessive Gene</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Body segments</td>
+                        <td><span class="gene-label">B = 3 segments</span></td>
+                        <td><span class="gene-label">b = 2 segments</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pairs of wings</td>
+                        <td><span class="gene-label">T = 2 pairs</span></td>
+                        <td><span class="gene-label">t = 1 pair</span></td>
+                    </tr>
+                    <tr>
+                        <td>Antenna style</td>
+                        <td><span class="gene-label">R = straight</span></td>
+                        <td><span class="gene-label">r = curly</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pairs of legs</td>
+                        <td><span class="gene-label">L = 3 pairs</span></td>
+                        <td><span class="gene-label">l = 2 pairs</span></td>
+                    </tr>
+                    <tr>
+                        <td>Color of eyes</td>
+                        <td><span class="gene-label">E = Black</span></td>
+                        <td><span class="gene-label">e = Green</span></td>
+                    </tr>
+                    <tr>
+                        <td>Body Color</td>
+                        <td><span class="gene-label">G = Gray</span></td>
+                        <td><span class="gene-label">g = Purple</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="ladybug-panel" aria-label="Ladybug illustration">
+                <svg class="ladybug-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ladybug illustration">
+                    <ellipse cx="100" cy="105" rx="72" ry="60" fill="#e53935" stroke="#b71c1c" stroke-width="5" />
+                    <ellipse cx="58" cy="74" rx="18" ry="16" fill="#111827" />
+                    <ellipse cx="142" cy="74" rx="18" ry="16" fill="#111827" />
+                    <ellipse cx="58" cy="136" rx="18" ry="16" fill="#111827" />
+                    <ellipse cx="142" cy="136" rx="18" ry="16" fill="#111827" />
+                    <circle cx="100" cy="105" r="25" fill="#f7f3d0" />
+                    <line x1="100" y1="52" x2="100" y2="18" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
+                    <line x1="70" y1="68" x2="38" y2="50" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
+                    <line x1="130" y1="68" x2="162" y2="50" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
+                    <line x1="70" y1="140" x2="42" y2="162" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
+                    <line x1="130" y1="140" x2="158" y2="162" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
+                    <circle cx="82" cy="103" r="6" fill="#111827" />
+                    <circle cx="118" cy="103" r="6" fill="#111827" />
+                    <path d="M90 118 Q100 128 110 118" fill="none" stroke="#111827" stroke-width="4" stroke-linecap="round" />
+                    <circle cx="100" cy="100" r="4" fill="#111827" />
+                    <path d="M100 70 L100 95" stroke="#111827" stroke-width="4" stroke-linecap="round" />
+                    <path d="M85 75 L72 60" stroke="#111827" stroke-width="4" stroke-linecap="round" />
+                    <path d="M115 75 L128 60" stroke="#111827" stroke-width="4" stroke-linecap="round" />
+                </svg>
+            </div>
+        </div>
+
         <p class="legend-note"><strong>Tip:</strong> Capital letters are dominant traits and lowercase letters are recessive traits.</p>
     </div>
 
