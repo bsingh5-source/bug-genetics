@@ -22,19 +22,22 @@
             --father-bg: #dfeafc;
             --mother-border: #7a8d82;
             --father-border: #3b6bb0;
-            --ladybug-red: #d4544d;
-            --ladybug-red-dark: #b63f3a;
-            --ladybug-blue: #4a86d8;
-            --ladybug-blue-dark: #2d5ea8;
-            --ladybug-dot: #2f2d2b;
             --ink: #1f2937;
             --annotation-female: #b33d3d;
             --annotation-male: #1c4b8e;
+            --female-body: #e64b4b;
+            --female-body-dark: #b33232;
+            --male-body: #4377d9;
+            --male-body-dark: #2b5da6;
+            --female-dot: #f7f1d2;
+            --male-dot: #f7f7f7;
+            --pencil: #1d1d1d;
         }
 
         * { box-sizing: border-box; }
 
         body {
+            margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
             background-color: var(--page-bg);
             color: var(--text);
@@ -42,7 +45,6 @@
             flex-direction: column;
             align-items: center;
             padding: 24px;
-            margin: 0;
         }
 
         h1 {
@@ -192,13 +194,8 @@
             position: relative;
         }
 
-        .bug-card.female {
-            background: linear-gradient(180deg, #fffaf5, #f7efe8);
-        }
-
-        .bug-card.male {
-            background: linear-gradient(180deg, #f7fbff, #edf4ff);
-        }
+        .bug-card.female { background: linear-gradient(180deg, #fffaf5, #f7efe8); }
+        .bug-card.male { background: linear-gradient(180deg, #f7fbff, #edf4ff); }
 
         .bug-title {
             font-size: 1.15rem;
@@ -354,24 +351,24 @@
 
             <div class="ladybug-panel" aria-label="Ladybug illustration">
                 <svg class="ladybug-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ladybug illustration">
-                    <ellipse cx="100" cy="105" rx="72" ry="60" fill="var(--ladybug-red)" stroke="var(--ladybug-red-dark)" stroke-width="5" />
-                    <ellipse cx="58" cy="74" rx="18" ry="16" fill="var(--ladybug-dot)" />
-                    <ellipse cx="142" cy="74" rx="18" ry="16" fill="var(--ladybug-dot)" />
-                    <ellipse cx="58" cy="136" rx="18" ry="16" fill="var(--ladybug-dot)" />
-                    <ellipse cx="142" cy="136" rx="18" ry="16" fill="var(--ladybug-dot)" />
+                    <ellipse cx="100" cy="105" rx="72" ry="60" fill="#d4544d" stroke="#b63f3a" stroke-width="5" />
+                    <ellipse cx="58" cy="74" rx="18" ry="16" fill="#2f2d2b" />
+                    <ellipse cx="142" cy="74" rx="18" ry="16" fill="#2f2d2b" />
+                    <ellipse cx="58" cy="136" rx="18" ry="16" fill="#2f2d2b" />
+                    <ellipse cx="142" cy="136" rx="18" ry="16" fill="#2f2d2b" />
                     <circle cx="100" cy="105" r="25" fill="#f7f3d0" />
-                    <line x1="100" y1="52" x2="100" y2="18" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <line x1="70" y1="68" x2="38" y2="50" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <line x1="130" y1="68" x2="162" y2="50" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <line x1="70" y1="140" x2="42" y2="162" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <line x1="130" y1="140" x2="158" y2="162" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <circle cx="82" cy="103" r="6" fill="var(--ink)" />
-                    <circle cx="118" cy="103" r="6" fill="var(--ink)" />
-                    <path d="M90 118 Q100 128 110 118" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <circle cx="100" cy="100" r="4" fill="var(--ink)" />
-                    <path d="M100 70 L100 95" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <path d="M85 75 L72 60" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
-                    <path d="M115 75 L128 60" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <line x1="100" y1="52" x2="100" y2="18" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <line x1="70" y1="68" x2="38" y2="50" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <line x1="130" y1="68" x2="162" y2="50" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <line x1="70" y1="140" x2="42" y2="162" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <line x1="130" y1="140" x2="158" y2="162" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <circle cx="82" cy="103" r="6" fill="#1f2937" />
+                    <circle cx="118" cy="103" r="6" fill="#1f2937" />
+                    <path d="M90 118 Q100 128 110 118" fill="none" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <circle cx="100" cy="100" r="4" fill="#1f2937" />
+                    <path d="M100 70 L100 95" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <path d="M85 75 L72 60" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+                    <path d="M115 75 L128 60" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
                 </svg>
             </div>
         </div>
@@ -381,54 +378,48 @@
                 <h4 class="bug-title">Female Bug (Red)</h4>
                 <div class="bug-figure">
                     <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" aria-label="Female bug cartoon illustration">
-                        <g stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M88 178 C 40 120, 55 55, 96 52 C 120 49, 152 72, 170 104 C 188 72, 220 49, 244 52 C 285 55, 300 120, 252 178 C 232 203, 206 217, 170 221 C 134 217, 108 203, 88 178Z" fill="#e9484d" stroke="#aa2c2c" stroke-width="4"/>
-                            <path d="M72 170 C 48 122, 58 66, 96 58" fill="none" stroke="#aa2c2c" stroke-width="4"/>
-                            <path d="M268 170 C 292 122, 282 66, 244 58" fill="none" stroke="#aa2c2c" stroke-width="4"/>
-                            <g fill="#f6f3cf">
-                                <circle cx="105" cy="118" r="18"/>
-                                <circle cx="255" cy="118" r="18"/>
+                        <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+                            <path d="M92 175 C 36 128, 56 52, 108 52 C 130 52, 158 68, 180 110 C 202 68, 230 52, 252 52 C 304 52, 324 128, 268 175 C 250 196, 224 214, 180 220 C 136 214, 110 196, 92 175 Z" fill="#e95050" stroke="#ad3434" stroke-width="4"/>
+                            <path d="M103 109 C 88 150, 96 170, 124 190" stroke="#ad3434" stroke-width="4"/>
+                            <path d="M257 109 C 272 150, 264 170, 236 190" stroke="#ad3434" stroke-width="4"/>
+                            <path d="M105 127 C 78 112, 70 77, 101 66" stroke="#ad3434" stroke-width="4"/>
+                            <path d="M255 127 C 282 112, 290 77, 259 66" stroke="#ad3434" stroke-width="4"/>
+                            <g fill="#f7f1d2">
+                                <circle cx="102" cy="116" r="17"/>
+                                <circle cx="258" cy="116" r="17"/>
                             </g>
-                            <g fill="#2f2d2b">
-                                <circle cx="98" cy="118" r="4"/>
-                                <circle cx="262" cy="118" r="4"/>
-                                <circle cx="180" cy="120" r="4"/>
-                            </g>
-                            <path d="M140 180 Q180 200 220 180" fill="none" stroke="#2f2d2b" stroke-width="4"/>
-                            <path d="M180 82 L180 52" stroke="#2f2d2b" stroke-width="4"/>
-                            <path d="M138 95 L110 68" stroke="#2f2d2b" stroke-width="4"/>
-                            <path d="M222 95 L250 68" stroke="#2f2d2b" stroke-width="4"/>
-                            <g>
-                                <path d="M170 70 L145 45" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M190 70 L215 45" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M90 185 L70 220" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M270 185 L290 220" stroke="#2f2d2b" stroke-width="4"/>
-                            </g>
-                            <g>
-                                <path d="M120 212 L100 245" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M240 212 L260 245" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M167 205 L149 245" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M193 205 L211 245" stroke="#2f2d2b" stroke-width="4"/>
-                            </g>
-                            <g>
-                                <path d="M92 132 Q90 112 78 110" stroke="#2f2d2b" stroke-width="2.5" fill="none"/>
-                                <path d="M268 132 Q270 112 282 110" stroke="#2f2d2b" stroke-width="2.5" fill="none"/>
-                            </g>
+                            <circle cx="96" cy="116" r="5" fill="#2f2d2b"/>
+                            <circle cx="264" cy="116" r="5" fill="#2f2d2b"/>
+                            <path d="M140 180 Q180 200 220 180" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M176 82 L176 52" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M144 98 L120 70" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M216 98 L240 70" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M170 70 L148 44" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M190 70 L212 44" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M90 176 L76 220" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M270 176 L284 220" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M120 208 L103 245" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M240 208 L257 245" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M166 206 L151 244" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M194 206 L209 244" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M178 92 L178 102" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M98 92 Q88 84 80 84" stroke="#2f2d2b" stroke-width="3"/>
+                            <path d="M262 92 Q272 84 280 84" stroke="#2f2d2b" stroke-width="3"/>
                         </g>
                         <g font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#b62c2c">
-                            <text x="34" y="100">colored eyes</text>
-                            <text x="38" y="146">3 pairs of legs</text>
-                            <text x="120" y="260">XX-female</text>
-                            <text x="130" y="44">round antennae</text>
-                            <text x="226" y="140">Two pairs of wings</text>
-                            <text x="240" y="190">3 body segments</text>
+                            <text x="42" y="92">colored eyes</text>
+                            <text x="42" y="152">3 pairs of legs</text>
+                            <text x="125" y="262">XX-female</text>
+                            <text x="122" y="38">round antennae</text>
+                            <text x="228" y="146">Two pairs of wings</text>
+                            <text x="238" y="192">3 body segments</text>
                         </g>
                         <g font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#b62c2c">
-                            <text x="50" y="120">(EE)</text>
-                            <text x="52" y="170">(LL)</text>
-                            <text x="170" y="32">(RR)</text>
-                            <text x="248" y="170">(TT)</text>
-                            <text x="258" y="220">(BB)</text>
+                            <text x="52" y="120">(EE)</text>
+                            <text x="52" y="180">(LL)</text>
+                            <text x="178" y="28">(RR)</text>
+                            <text x="247" y="175">(TT)</text>
+                            <text x="262" y="222">(BB)</text>
                         </g>
                     </svg>
                 </div>
@@ -439,54 +430,48 @@
                 <h4 class="bug-title">Male Bug (Blue)</h4>
                 <div class="bug-figure">
                     <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" aria-label="Male bug cartoon illustration">
-                        <g stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M88 178 C 40 120, 55 55, 96 52 C 120 49, 152 72, 170 104 C 188 72, 220 49, 244 52 C 285 55, 300 120, 252 178 C 232 203, 206 217, 170 221 C 134 217, 108 203, 88 178Z" fill="#4c83d8" stroke="#2b5da6" stroke-width="4"/>
-                            <path d="M72 170 C 48 122, 58 66, 96 58" fill="none" stroke="#2b5da6" stroke-width="4"/>
-                            <path d="M268 170 C 292 122, 282 66, 244 58" fill="none" stroke="#2b5da6" stroke-width="4"/>
+                        <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+                            <path d="M92 175 C 36 128, 56 52, 108 52 C 130 52, 158 68, 180 110 C 202 68, 230 52, 252 52 C 304 52, 324 128, 268 175 C 250 196, 224 214, 180 220 C 136 214, 110 196, 92 175 Z" fill="#4c83d8" stroke="#2b5da6" stroke-width="4"/>
+                            <path d="M103 109 C 88 150, 96 170, 124 190" stroke="#2b5da6" stroke-width="4"/>
+                            <path d="M257 109 C 272 150, 264 170, 236 190" stroke="#2b5da6" stroke-width="4"/>
+                            <path d="M105 127 C 78 112, 70 77, 101 66" stroke="#2b5da6" stroke-width="4"/>
+                            <path d="M255 127 C 282 112, 290 77, 259 66" stroke="#2b5da6" stroke-width="4"/>
                             <g fill="#f7f7f7">
-                                <circle cx="105" cy="118" r="18"/>
-                                <circle cx="255" cy="118" r="18"/>
+                                <circle cx="102" cy="116" r="17"/>
+                                <circle cx="258" cy="116" r="17"/>
                             </g>
-                            <g fill="#2f2d2b">
-                                <circle cx="98" cy="118" r="4"/>
-                                <circle cx="262" cy="118" r="4"/>
-                                <circle cx="180" cy="120" r="4"/>
-                            </g>
-                            <path d="M140 180 Q180 200 220 180" fill="none" stroke="#2f2d2b" stroke-width="4"/>
-                            <path d="M180 82 L180 52" stroke="#2f2d2b" stroke-width="4"/>
-                            <path d="M138 95 L110 68" stroke="#2f2d2b" stroke-width="4"/>
-                            <path d="M222 95 L250 68" stroke="#2f2d2b" stroke-width="4"/>
-                            <g>
-                                <path d="M170 70 L145 45" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M190 70 L215 45" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M90 185 L70 220" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M270 185 L290 220" stroke="#2f2d2b" stroke-width="4"/>
-                            </g>
-                            <g>
-                                <path d="M120 212 L100 245" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M240 212 L260 245" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M167 205 L149 245" stroke="#2f2d2b" stroke-width="4"/>
-                                <path d="M193 205 L211 245" stroke="#2f2d2b" stroke-width="4"/>
-                            </g>
-                            <g>
-                                <path d="M92 132 Q90 112 78 110" stroke="#2f2d2b" stroke-width="2.5" fill="none"/>
-                                <path d="M268 132 Q270 112 282 110" stroke="#2f2d2b" stroke-width="2.5" fill="none"/>
-                            </g>
+                            <circle cx="96" cy="116" r="5" fill="#2f2d2b"/>
+                            <circle cx="264" cy="116" r="5" fill="#2f2d2b"/>
+                            <path d="M140 180 Q180 200 220 180" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M176 82 L176 52" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M144 98 L120 70" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M216 98 L240 70" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M170 70 L148 44" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M190 70 L212 44" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M90 176 L76 220" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M270 176 L284 220" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M120 208 L103 245" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M240 208 L257 245" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M166 206 L151 244" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M194 206 L209 244" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M178 92 L178 102" stroke="#2f2d2b" stroke-width="4"/>
+                            <path d="M98 92 Q88 84 80 84" stroke="#2f2d2b" stroke-width="3"/>
+                            <path d="M262 92 Q272 84 280 84" stroke="#2f2d2b" stroke-width="3"/>
                         </g>
                         <g font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#244f9c">
-                            <text x="30" y="96">clear eyes</text>
-                            <text x="40" y="146">3 pairs of legs</text>
-                            <text x="120" y="260">XY-male</text>
-                            <text x="120" y="44">flat antennae</text>
+                            <text x="42" y="96">clear eyes</text>
+                            <text x="42" y="146">3 pairs of legs</text>
+                            <text x="125" y="262">XY-male</text>
+                            <text x="122" y="38">flat antennae</text>
                             <text x="225" y="140">one pair of wings</text>
-                            <text x="250" y="190">2 body segments</text>
+                            <text x="238" y="192">2 body segments</text>
                         </g>
                         <g font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#244f9c">
-                            <text x="50" y="120">(ee)</text>
-                            <text x="48" y="170">(ll)</text>
-                            <text x="170" y="32">(rr)</text>
-                            <text x="245" y="170">(tt)</text>
-                            <text x="260" y="220">(bb)</text>
+                            <text x="52" y="120">(ee)</text>
+                            <text x="52" y="176">(ll)</text>
+                            <text x="178" y="28">(rr)</text>
+                            <text x="248" y="174">(tt)</text>
+                            <text x="262" y="220">(bb)</text>
                         </g>
                     </svg>
                 </div>
