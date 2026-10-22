@@ -81,7 +81,7 @@
 
         .legend-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 12px;
         }
 
@@ -93,18 +93,20 @@
             border: 1px solid #e2e8f0;
             border-radius: 10px;
             padding: 8px 10px;
+            min-height: 62px;
         }
 
         .letter-badge {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
+            min-width: 58px;
             height: 36px;
             border-radius: 8px;
             background: #e2e8f0;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            padding: 0 8px;
         }
 
         .legend-note {
@@ -174,14 +176,14 @@
     <h1>Bug Chromosome Lab</h1>
 
     <div class="legend-box">
-        <h3>Gene Key</h3>
+        <h3>Traits & Genes</h3>
         <div class="legend-grid">
-            <div class="legend-item"><span class="letter-badge">B / b</span><span>Body color</span></div>
-            <div class="legend-item"><span class="letter-badge">T / t</span><span>Leg length</span></div>
-            <div class="legend-item"><span class="letter-badge">R / r</span><span>Wing pattern</span></div>
-            <div class="legend-item"><span class="letter-badge">L / l</span><span>Spots/markings</span></div>
-            <div class="legend-item"><span class="letter-badge">E / e</span><span>Eye size</span></div>
-            <div class="legend-item"><span class="letter-badge">X / Y</span><span>Sex chromosome</span></div>
+            <div class="legend-item"><span class="letter-badge">B / b</span><span>Body segments: B = 3 segments, b = 2 segments</span></div>
+            <div class="legend-item"><span class="letter-badge">T / t</span><span>Pairs of wings: T = 2 pairs, t = 1 pair</span></div>
+            <div class="legend-item"><span class="letter-badge">R / r</span><span>Antenna style: R = straight, r = curly</span></div>
+            <div class="legend-item"><span class="letter-badge">L / l</span><span>Pairs of legs: L = 3 pairs, l = 2 pairs</span></div>
+            <div class="legend-item"><span class="letter-badge">E / e</span><span>Color of eyes: E = Black, e = Green</span></div>
+            <div class="legend-item"><span class="letter-badge">G / g</span><span>Body Color: G = Gray, g = purple</span></div>
         </div>
         <p class="legend-note"><strong>Tip:</strong> Capital letters are dominant traits and lowercase letters are recessive traits.</p>
     </div>
