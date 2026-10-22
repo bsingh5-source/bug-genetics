@@ -6,38 +6,63 @@
     <title>Bug Genetics Recombination</title>
     <style>
         :root {
-            --mother-bg: #d1a3b9;
-            --father-bg: #b3d1ff;
-            --mother-border: #8da399;
-            --father-border: #0000ff;
+            --page-bg: #f7f3ea;
+            --panel-bg: #fffdf9;
+            --panel-border: #d9cfbd;
+            --header-green: #5f7c68;
+            --button-green: #6d8f73;
+            --button-green-hover: #597961;
+            --button-red: #d66a60;
+            --button-red-hover: #bc5247;
+            --table-header: #f1e3c7;
+            --table-row: #fffaf1;
+            --text: #2c2a28;
+            --muted-text: #5f584f;
+            --mother-bg: #f3d3d8;
+            --father-bg: #dfeafc;
+            --mother-border: #7a8d82;
+            --father-border: #3b6bb0;
+            --ladybug-red: #d4544d;
+            --ladybug-red-dark: #b63f3a;
+            --ladybug-dot: #2f2d2b;
+            --ink: #1f2937;
         }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f0f2f5;
+            background-color: var(--page-bg);
+            color: var(--text);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            padding: 24px;
+        }
+
+        h1 {
+            color: var(--header-green);
+            font-size: 2.2rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
         }
 
         .btn-container { margin-bottom: 30px; }
 
         button {
             padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
             border: none;
             border-radius: 50px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            letter-spacing: 0.2px;
         }
 
-        .btn-sort { background-color: #28a745; color: white; margin-right: 10px; }
-        .btn-sort:hover { background-color: #218838; transform: translateY(-2px); }
-        .btn-reset { background-color: #dc3545; color: white; }
-        .btn-reset:hover { background-color: #c82333; }
+        .btn-sort { background-color: var(--button-green); color: white; margin-right: 10px; }
+        .btn-sort:hover { background-color: var(--button-green-hover); transform: translateY(-2px); }
+        .btn-reset { background-color: var(--button-red); color: white; }
+        .btn-reset:hover { background-color: var(--button-red-hover); }
 
         .parents-grid {
             display: flex;
@@ -46,16 +71,17 @@
         }
 
         .parent-box {
-            background: white;
+            background: var(--panel-bg);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            border: 1px solid var(--panel-border);
             text-align: center;
             min-width: 200px;
         }
 
-        .header-m { background-color: var(--mother-bg); padding: 10px; border-radius: 8px; margin-bottom: 15px; }
-        .header-f { background-color: var(--father-bg); padding: 10px; border-radius: 8px; margin-bottom: 15px; }
+        .header-m { background-color: var(--mother-bg); padding: 10px; border-radius: 8px; margin-bottom: 15px; color: var(--ink); }
+        .header-f { background-color: var(--father-bg); padding: 10px; border-radius: 8px; margin-bottom: 15px; color: var(--ink); }
 
         .pool {
             display: flex;
@@ -65,18 +91,20 @@
         }
 
         .legend-box {
-            background: #ffffff;
-            border: 2px solid #d1d5db;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            background: var(--panel-bg);
+            border: 2px solid var(--panel-border);
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.05);
             margin-bottom: 30px;
-            padding: 16px 20px;
-            width: min(1000px, 90vw);
+            padding: 18px 20px;
+            width: min(1000px, 92vw);
         }
 
         .legend-box h3 {
-            margin: 0 0 12px;
+            margin: 0 0 14px;
             text-align: center;
+            color: var(--header-green);
+            font-size: 1.5rem;
         }
 
         .legend-layout {
@@ -88,46 +116,50 @@
         .trait-table {
             flex: 1;
             border-collapse: collapse;
-            background: #f8fafc;
-            border: 1px solid #dbe3ee;
+            background: var(--table-row);
+            border: 1px solid #e6dcc5;
             border-radius: 10px;
             overflow: hidden;
         }
 
         .trait-table th,
         .trait-table td {
-            border: 1px solid #dbe3ee;
+            border: 1px solid #e8ddc7;
             padding: 10px 12px;
             text-align: left;
             vertical-align: middle;
+            color: var(--text);
         }
 
         .trait-table th {
-            background: #e2e8f0;
-            font-weight: bold;
+            background: var(--table-header);
+            font-weight: 700;
             text-align: center;
+            color: var(--ink);
         }
 
         .gene-label {
             display: inline-block;
-            background: #e2e8f0;
+            background: #f4efe4;
+            border: 1px solid #e7dcc4;
             border-radius: 6px;
-            padding: 4px 8px;
-            font-weight: bold;
+            padding: 5px 8px;
+            font-weight: 700;
             text-align: center;
+            color: var(--ink);
         }
 
         .ladybug-panel {
             width: 220px;
             min-width: 220px;
             height: 220px;
-            background: linear-gradient(135deg, #fffaf2, #f3f4f6);
-            border: 2px solid #dbe3ee;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #fffaf2, #f0f3ef);
+            border: 2px solid #e5dac5;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.15);
+            box-shadow: inset 0 0 0 1px rgba(95, 124, 104, 0.08);
         }
 
         .ladybug-svg {
@@ -139,7 +171,7 @@
             margin-top: 12px;
             text-align: center;
             font-size: 0.95rem;
-            color: #334155;
+            color: var(--muted-text);
         }
 
         /* Chromosome Styling */
@@ -170,8 +202,8 @@
 
         /* Recombination Area */
         .recombination-zone {
-            background: #e2e8f0;
-            border: 4px dashed #94a3b8;
+            background: #edf2f1;
+            border: 3px dashed #9bb0a7;
             border-radius: 20px;
             padding: 30px;
             width: 500px;
@@ -188,9 +220,9 @@
 
         .slot {
             width: 70px;
-            border: 3px solid #cbd5e1;
+            border: 3px solid #d4dfe1;
             border-radius: 12px;
-            background: #f8fafc;
+            background: #f9fbfb;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -248,24 +280,24 @@
 
             <div class="ladybug-panel" aria-label="Ladybug illustration">
                 <svg class="ladybug-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ladybug illustration">
-                    <ellipse cx="100" cy="105" rx="72" ry="60" fill="#e53935" stroke="#b71c1c" stroke-width="5" />
-                    <ellipse cx="58" cy="74" rx="18" ry="16" fill="#111827" />
-                    <ellipse cx="142" cy="74" rx="18" ry="16" fill="#111827" />
-                    <ellipse cx="58" cy="136" rx="18" ry="16" fill="#111827" />
-                    <ellipse cx="142" cy="136" rx="18" ry="16" fill="#111827" />
+                    <ellipse cx="100" cy="105" rx="72" ry="60" fill="var(--ladybug-red)" stroke="var(--ladybug-red-dark)" stroke-width="5" />
+                    <ellipse cx="58" cy="74" rx="18" ry="16" fill="var(--ladybug-dot)" />
+                    <ellipse cx="142" cy="74" rx="18" ry="16" fill="var(--ladybug-dot)" />
+                    <ellipse cx="58" cy="136" rx="18" ry="16" fill="var(--ladybug-dot)" />
+                    <ellipse cx="142" cy="136" rx="18" ry="16" fill="var(--ladybug-dot)" />
                     <circle cx="100" cy="105" r="25" fill="#f7f3d0" />
-                    <line x1="100" y1="52" x2="100" y2="18" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
-                    <line x1="70" y1="68" x2="38" y2="50" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
-                    <line x1="130" y1="68" x2="162" y2="50" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
-                    <line x1="70" y1="140" x2="42" y2="162" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
-                    <line x1="130" y1="140" x2="158" y2="162" stroke="#2d3748" stroke-width="4" stroke-linecap="round" />
-                    <circle cx="82" cy="103" r="6" fill="#111827" />
-                    <circle cx="118" cy="103" r="6" fill="#111827" />
-                    <path d="M90 118 Q100 128 110 118" fill="none" stroke="#111827" stroke-width="4" stroke-linecap="round" />
-                    <circle cx="100" cy="100" r="4" fill="#111827" />
-                    <path d="M100 70 L100 95" stroke="#111827" stroke-width="4" stroke-linecap="round" />
-                    <path d="M85 75 L72 60" stroke="#111827" stroke-width="4" stroke-linecap="round" />
-                    <path d="M115 75 L128 60" stroke="#111827" stroke-width="4" stroke-linecap="round" />
+                    <line x1="100" y1="52" x2="100" y2="18" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <line x1="70" y1="68" x2="38" y2="50" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <line x1="130" y1="68" x2="162" y2="50" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <line x1="70" y1="140" x2="42" y2="162" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <line x1="130" y1="140" x2="158" y2="162" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <circle cx="82" cy="103" r="6" fill="var(--ink)" />
+                    <circle cx="118" cy="103" r="6" fill="var(--ink)" />
+                    <path d="M90 118 Q100 128 110 118" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <circle cx="100" cy="100" r="4" fill="var(--ink)" />
+                    <path d="M100 70 L100 95" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <path d="M85 75 L72 60" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
+                    <path d="M115 75 L128 60" stroke="var(--ink)" stroke-width="4" stroke-linecap="round" />
                 </svg>
             </div>
         </div>
@@ -315,7 +347,6 @@
 
     <script>
         function resetAll() {
-            // Move chromosomes back to their original pools
             document.getElementById('mother-pool').appendChild(document.getElementById('m1'));
             document.getElementById('mother-pool').appendChild(document.getElementById('m2'));
             document.getElementById('father-pool').appendChild(document.getElementById('f1'));
@@ -323,20 +354,13 @@
         }
 
         function recombine() {
-            // Step 1: Always reset first so we choose from all 4 options
             resetAll();
-
-            // Step 2: Randomly pick Mother's chromosome
             const motherOptions = ["m1", "m2"];
             const randomM = motherOptions[Math.floor(Math.random() * motherOptions.length)];
             const chosenM = document.getElementById(randomM);
-
-            // Step 3: Randomly pick Father's chromosome
             const fatherOptions = ["f1", "f2"];
             const randomF = fatherOptions[Math.floor(Math.random() * fatherOptions.length)];
             const chosenF = document.getElementById(randomF);
-
-            // Step 4: Move them to the recombination area
             document.getElementById('slot-m').appendChild(chosenM);
             document.getElementById('slot-f').appendChild(chosenF);
         }
