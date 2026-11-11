@@ -314,10 +314,10 @@
             <div class="header-m">Mother Bug Genes</div>
             <div class="pool" id="mother-pool">
                 <div class="chromosome m-type" id="m1">
-                    <div class="gene">B</div><div class="gene">T</div><div class="gene">R</div><div class="gene">L</div><div class="gene">E</div><div class="gene">X</div>
+                    <div class="gene">B</div><div class="gene">T</div><div class="gene">R</div><div class="gene">L</div><div class="gene">E</div><div class="gene">G</div>
                 </div>
                 <div class="chromosome m-type" id="m2">
-                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">X</div>
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">G</div>
                 </div>
             </div>
         </div>
@@ -326,10 +326,10 @@
             <div class="header-f">Father Bug Genes</div>
             <div class="pool" id="father-pool">
                 <div class="chromosome f-type" id="f1">
-                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">L</div><div class="gene">e</div><div class="gene">X</div>
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">L</div><div class="gene">e</div><div class="gene">g</div>
                 </div>
                 <div class="chromosome f-type" id="f2">
-                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">Y</div>
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">g</div>
                 </div>
             </div>
         </div>
