@@ -90,30 +90,6 @@
             min-height: 250px;
         }
 
-        .sex-section {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 0 auto 30px;
-            width: min(700px, 90vw);
-        }
-
-        .sex-box {
-            flex: 1;
-            max-width: 260px;
-            background: var(--panel-bg);
-            border: 1px solid var(--panel-border);
-            border-radius: 12px;
-            padding: 12px 18px;
-            text-align: center;
-            font-weight: 700;
-            color: var(--ink);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        .sex-box.mother { background: var(--mother-bg); }
-        .sex-box.father { background: var(--father-bg); }
-
         .legend-box {
             background: var(--panel-bg);
             border: 2px solid var(--panel-border);
@@ -238,7 +214,7 @@
             justify-content: center;
             gap: 30px;
             margin-top: 20px;
-            min-height: 260px;
+            min-height: 300px;
         }
 
         .slot {
@@ -249,6 +225,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .offspring-result {
+            min-height: 1.5em;
+            margin: 18px 0 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
         }
     </style>
 </head>
@@ -338,10 +322,10 @@
             <div class="header-m">Mother Bug Genes</div>
             <div class="pool" id="mother-pool">
                 <div class="chromosome m-type" id="m1">
-                    <div class="gene">B</div><div class="gene">T</div><div class="gene">R</div><div class="gene">L</div><div class="gene">E</div><div class="gene">G</div>
+                    <div class="gene">B</div><div class="gene">T</div><div class="gene">R</div><div class="gene">L</div><div class="gene">E</div><div class="gene">G</div><div class="gene">X</div>
                 </div>
                 <div class="chromosome m-type" id="m2">
-                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">G</div>
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">G</div><div class="gene">X</div>
                 </div>
             </div>
         </div>
@@ -350,18 +334,13 @@
             <div class="header-f">Father Bug Genes</div>
             <div class="pool" id="father-pool">
                 <div class="chromosome f-type" id="f1">
-                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">L</div><div class="gene">e</div><div class="gene">g</div>
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">L</div><div class="gene">e</div><div class="gene">g</div><div class="gene">X</div>
                 </div>
                 <div class="chromosome f-type" id="f2">
-                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">g</div>
+                    <div class="gene">b</div><div class="gene">t</div><div class="gene">r</div><div class="gene">l</div><div class="gene">e</div><div class="gene">g</div><div class="gene">Y</div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="sex-section">
-        <div class="sex-box mother">Mother Genes: XX</div>
-        <div class="sex-box father">Father Genes: XY</div>
     </div>
 
     <div class="recombination-zone">
@@ -371,6 +350,7 @@
             <div class="slot" id="slot-m"></div>
             <div class="slot" id="slot-f"></div>
         </div>
+        <p class="offspring-result" id="offspring-sex" aria-live="polite">Press Sort & Recombine Genes to determine offspring sex.</p>
     </div>
 
     <script>
@@ -379,6 +359,7 @@
             document.getElementById('mother-pool').appendChild(document.getElementById('m2'));
             document.getElementById('father-pool').appendChild(document.getElementById('f1'));
             document.getElementById('father-pool').appendChild(document.getElementById('f2'));
+            document.getElementById('offspring-sex').textContent = 'Press Sort & Recombine Genes to determine offspring sex.';
         }
 
         function recombine() {
@@ -389,8 +370,15 @@
             const fatherOptions = ["f1", "f2"];
             const randomF = fatherOptions[Math.floor(Math.random() * fatherOptions.length)];
             const chosenF = document.getElementById(randomF);
+
+            const motherSexChromosome = chosenM.querySelector('.gene:last-child').textContent;
+            const fatherSexChromosome = chosenF.querySelector('.gene:last-child').textContent;
+            const offspringChromosomes = motherSexChromosome + fatherSexChromosome;
+            const offspringSex = offspringChromosomes === 'XX' ? 'Female' : 'Male';
+
             document.getElementById('slot-m').appendChild(chosenM);
             document.getElementById('slot-f').appendChild(chosenF);
+            document.getElementById('offspring-sex').textContent = `Offspring sex: ${offspringSex} (${offspringChromosomes})`;
         }
     </script>
 </body>
