@@ -90,6 +90,30 @@
             min-height: 250px;
         }
 
+        .sex-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 0 auto 30px;
+            width: min(700px, 90vw);
+        }
+
+        .sex-box {
+            flex: 1;
+            max-width: 260px;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 12px 18px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--ink);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .sex-box.mother { background: var(--mother-bg); }
+        .sex-box.father { background: var(--father-bg); }
+
         .legend-box {
             background: var(--panel-bg);
             border: 2px solid var(--panel-border);
@@ -333,6 +357,11 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="sex-section">
+        <div class="sex-box mother">Mother Genes: XX</div>
+        <div class="sex-box father">Father Genes: XY</div>
     </div>
 
     <div class="recombination-zone">
